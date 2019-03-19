@@ -141,9 +141,6 @@ private:
 #   define TI_UTILS_DEBUG_TIMESTAMP_VARIABLE
 #endif
 
-
-
-
 #define DBGUTILS_LOGV_FULL(priority, file, line, function, format, ...)       \
     do                                                                        \
     {                                                                         \
@@ -155,13 +152,22 @@ private:
                 file, line, function, __VA_ARGS__);                           \
     } while (0)
 
+#if 0
 #define DBGUTILS_LOGV(...) DBGUTILS_LOGV_FULL(ANDROID_LOG_VERBOSE, __FILE__, __LINE__, __FUNCTION__, TI_UTILS_DEBUG_TIMESTAMP_TOKEN "(%x) %s  %s:%d %s - " __VA_ARGS__, "")
 #define DBGUTILS_LOGD(...) DBGUTILS_LOGV_FULL(ANDROID_LOG_DEBUG,   __FILE__, __LINE__, __FUNCTION__, TI_UTILS_DEBUG_TIMESTAMP_TOKEN "(%x) %s  %s:%d %s - " __VA_ARGS__, "")
 #define DBGUTILS_LOGI(...) DBGUTILS_LOGV_FULL(ANDROID_LOG_INFO,    __FILE__, __LINE__, __FUNCTION__, TI_UTILS_DEBUG_TIMESTAMP_TOKEN "(%x) %s  %s:%d %s - " __VA_ARGS__, "")
 #define DBGUTILS_LOGW(...) DBGUTILS_LOGV_FULL(ANDROID_LOG_WARN,    __FILE__, __LINE__, __FUNCTION__, TI_UTILS_DEBUG_TIMESTAMP_TOKEN "(%x) %s  %s:%d %s - " __VA_ARGS__, "")
 #define DBGUTILS_LOGE(...) DBGUTILS_LOGV_FULL(ANDROID_LOG_ERROR,   __FILE__, __LINE__, __FUNCTION__, TI_UTILS_DEBUG_TIMESTAMP_TOKEN "(%x) %s  %s:%d %s - " __VA_ARGS__, "")
 #define DBGUTILS_LOGF(...) DBGUTILS_LOGV_FULL(ANDROID_LOG_FATAL,   __FILE__, __LINE__, __FUNCTION__, TI_UTILS_DEBUG_TIMESTAMP_TOKEN "(%x) %s  %s:%d %s - " __VA_ARGS__, "")
-
+#else
+#define DBGUTILS_LOGV(...)
+#define DBGUTILS_LOGD(...)
+#define DBGUTILS_LOGI(...)
+#define DBGUTILS_LOGW(...)
+#define DBGUTILS_LOGE(...)
+#define DBGUTILS_LOGF(...)
+#endif
+    
 #define DBGUTILS_LOGVA DBGUTILS_LOGV
 #define DBGUTILS_LOGVB DBGUTILS_LOGV
 
