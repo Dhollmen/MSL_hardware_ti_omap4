@@ -64,13 +64,13 @@ extern "C"
 
 #include <timm_osal_trace.h>
 
-#define DOMX_ERROR(fmt,...)  TIMM_OSAL_Error(fmt, ##__VA_ARGS__)
-#define DOMX_WARN(fmt,...)   TIMM_OSAL_Warning(fmt, ##__VA_ARGS__)
-#define DOMX_PROF(fmt,...)   TIMM_OSAL_Profiling(fmt, ##__VA_ARGS__)
-#define DOMX_INFO(fmt,...)   TIMM_OSAL_Info(fmt, ##__VA_ARGS__)
-#define DOMX_DEBUG(fmt,...)  TIMM_OSAL_Debug(fmt, ##__VA_ARGS__)
-#define DOMX_ENTER(fmt,...)  TIMM_OSAL_Entering(fmt, ##__VA_ARGS__)
-#define DOMX_EXIT(fmt,...)   TIMM_OSAL_Exiting(fmt, ##__VA_ARGS__)
+#define DOMX_ERROR(fmt,...)  //TIMM_OSAL_Error(fmt, ##__VA_ARGS__)
+#define DOMX_WARN(fmt,...)   //TIMM_OSAL_Warning(fmt, ##__VA_ARGS__)
+#define DOMX_PROF(fmt,...)   //TIMM_OSAL_Profiling(fmt, ##__VA_ARGS__)
+#define DOMX_INFO(fmt,...)   //TIMM_OSAL_Info(fmt, ##__VA_ARGS__)
+#define DOMX_DEBUG(fmt,...)  //TIMM_OSAL_Debug(fmt, ##__VA_ARGS__)
+#define DOMX_ENTER(fmt,...)  //TIMM_OSAL_Entering(fmt, ##__VA_ARGS__)
+#define DOMX_EXIT(fmt,...)   //TIMM_OSAL_Exiting(fmt, ##__VA_ARGS__)
 
 
 /******************************************************************
