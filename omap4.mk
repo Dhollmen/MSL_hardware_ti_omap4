@@ -17,15 +17,22 @@
 
 OMAP4_NEXT_FOLDER := hardware/ti/omap4
 
-PRODUCT_PACKAGES += \
-    hwcomposer.omap4 \
-    power.omap4
-
 PRODUCT_VENDOR_KERNEL_HEADERS := hardware/ti/omap4/kernel-headers
 
+ifneq ($(KERNEL_DHOLLMEN),true)
+    PRODUCT_PACKAGES += \
+        hwcomposer.omap4 \
+        power.omap4
 # Init
-PRODUCT_COPY_FILES += \
-    $(OMAP4_NEXT_FOLDER)/rootdir/init.omap4.rc:root/init.omap4.rc
+    PRODUCT_COPY_FILES += \
+        $(OMAP4_NEXT_FOLDER)/rootdir/init.omap4.rc:root/init.omap4.rc
+else
+    PRODUCT_PACKAGES += \
+        hwcomposer.omap4
+# Init
+    PRODUCT_COPY_FILES += \
+        $(OMAP4_NEXT_FOLDER)/rootdir/init.omap4_dhollmen.rc:root/init.omap4.rc
+endif
 
 # SGX540 is slower with the scissor optimization enabled
 PRODUCT_PROPERTY_OVERRIDES += \

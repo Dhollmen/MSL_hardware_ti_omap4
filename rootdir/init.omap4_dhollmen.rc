@@ -1,0 +1,23 @@
+on boot
+    chown root system /sys/devices/platform/omapdss/manager0/cpr_coef
+    chown root system /sys/devices/platform/omapdss/manager0/cpr_enable
+    chmod 0664 /sys/devices/platform/omapdss/manager0/cpr_coef
+    chmod 0664 /sys/devices/platform/omapdss/manager0/cpr_enable
+    restorecon /sys/devices/platform/omapdss/manager0/cpr_coef
+    restorecon /sys/devices/platform/omapdss/manager0/cpr_enable
+
+on class_start:late_start
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay 60000
+    write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 0
+    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 99
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 800000
+    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "70 300000:50 600000:70 800000:80 1008000:99" 
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 40000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 80000
+    
+service pvrsrvinit /system/bin/pvrsrvinit
+    class core
+    user root
+    group root
+    oneshot
